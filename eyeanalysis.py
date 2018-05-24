@@ -14,7 +14,6 @@ Determine format for generalizing this approach.
 
 """
 
-from gazesdk import *
 import time
 import sys
 import os.path
@@ -295,7 +294,7 @@ class interaction:
                 self.sub_interactions.append(sub_interaction(ptimes_list[i], pitems_list[i], i))
         else:
             self.load_pixelmap_index = 2
-            self.med_mappings = self.load_interaction_meds_mapping('D:/models/evaluation_study/cases_t2/'+str(self.interaction_id))
+            self.med_mappings = self.load_interaction_meds_mapping('C:/Users/ajk77/Bitnami Django Stack projects/models/evaluation_study/cases_t2/'+str(self.interaction_id))
             ptimes_list, pitems_list = load_pixelmaps_evaluation_study(interaction_directory, self.med_mappings)
             for i in range(7):
                 self.sub_interactions.append(sub_interaction(ptimes_list[i], pitems_list[i], i))
@@ -322,13 +321,13 @@ class interaction:
     def get_durations_str(self):
         durations_str = ''
         for i in range(len(self.sub_interactions)):
-            durations_str += str(round(self.sub_interactions[i].get_duration()/60.0, 2)) + '|' 
+            durations_str += str(round(self.sub_interactions[i].get_duration(), 3)) + '|' 
         return durations_str.rstrip('|')
 
     def get_durations_arr(self):
         durations_arr = []
         for i in range(len(self.sub_interactions)):
-            durations_arr.append(round(self.sub_interactions[i].get_duration()/60.0, 2))
+            durations_arr.append(round(self.sub_interactions[i].get_duration(), 3))
         return durations_arr
 
     def get_interaction_start_time(self):
@@ -347,7 +346,7 @@ class interaction:
                 self.eye_streams.append(eye_stream)
 
         # ## load distribution 
-        distribution_4 = np.loadtxt('D:/models/eye_tests/4_pixel.txt', delimiter=',')
+        distribution_4 = np.loadtxt('C:/Users/ajk77/Bitnami Django Stack projects/models/eye_tests/4_pixel.txt', delimiter=',')
 
         if not len(self.eye_streams):
             print "no eye_stream in time range"
@@ -705,97 +704,3 @@ def add_to_universal_item_list(users, uil):
                     uil[key] += curr_interaction.sub_interactions[1].item_gaze_weights[key]
     return uil
 
-
-if __name__ == "__main__":
-    """
-    if __name__ == "__main__t":
-    Rerun of eye mapping code
-    """
-    experimental_indices = [0, 1, 2]  # 0 is test, 1 is labeling, 2 is evaluation
-    generate_and_store_users = True
-    save_times = False
-    output_mappings = False
-    output_items_present = True
-    sorted_universal_item_list_keys_file = 'C:/Users/ajk77/Desktop/universal_item_list.pickle'
-
-    def return_experiemt_parameters(experiment_index):
-        if experiment_index==1:  # labeling study
-            base_dir = 'D:/LEMR_archives/2_labeling_study/'
-            user_dir = ['K3-full-15Aug2017/K3/', 'M2-full-09Oct2017/M2/', 'L2-full-10Oct2017/L2/', 'B2-full-10Oct2017/B2/', 
-                        'G16-full-6Sep2017/G16/', 'N16-full-24Sep2017/N16/', 'A14-full-28Aug2017/A14/', 'P23-full-24Aug2017/P23/', 
-                        'F3-full-23Aug2017/F3/', 'P14-full-22Aug2017/P14/', 'S23-full-11Aug2017/S23/']
-            print_times_file = 'C:/Users/ajk77/Desktop/interaction_times-labeling.txt'
-            print_mapping_file = 'C:/Users/ajk77/Desktop/gaze_weights-labeling.txt'
-            print_items_present_file = 'C:/Users/ajk77/Desktop/items_present-labeling.txt'
-        elif experiment_index==2:  # evaluation study
-            base_dir = 'D:/LEMR_archives/3_evaluation_study/'
-            user_dir = ['A14/', 'B2/', 'B7/', 'K7/', 'L2/', 'P14/', 'S23/']  # missing L11, R4, V4, C9, U00
-            print_times_file = 'C:/Users/ajk77/Desktop/interaction_times-evaluation.txt'
-            print_mapping_file = 'C:/Users/ajk77/Desktop/gaze_weights-evaluation.txt'
-            print_items_present_file = 'C:/Users/ajk77/Desktop/items_present-evaluation.txt'
-        else:  # test cases
-            base_dir = 'C:/Users/ajk77/Desktop/'
-            user_dir = ['F3/', 'M2/', 'A14/']
-            print_times_file = 'C:/Users/ajk77/Desktop/interaction_times-test.txt'
-            print_mapping_file = 'C:/Users/ajk77/Desktop/gaze_weights-test.txt'
-            print_items_present_file = 'C:/Users/ajk77/Desktop/items_present-test.txt'
-        return [base_dir, user_dir, print_times_file, print_mapping_file, print_items_present_file]
-
-    # ## if new data -> generate and store users ## #  
-    if generate_and_store_users:  # the users have not yet been f=generated and stored
-        universal_item_list = {}
-        for i in experimental_indices:  # loop through desired experiemts
-            base_dir, user_dir, print_times_file, print_mapping_file, print_items_present_file = return_experiemt_parameters(i)
-            users = []
-            # ## set each users directory
-            for curr_user_dir in user_dir:
-                print base_dir + curr_user_dir  # print progress
-                users.append(user(base_dir + curr_user_dir))
-                for (p, d, f) in walk(base_dir + curr_user_dir):
-                    for directory in d:
-                        if directory[0:3] == 'run':
-                            users[-1].add_run(directory)
-
-            # ## loop throgh each user directory
-            for curr_user in users:
-                    # sort by interaction datetime
-                    curr_user.interactions.sort(key=lambda x: x.get_interaction_start_time(), reverse=False)
-                    # # remove empty interactions -> they are empty due to error or cases were users never advanced beyond the loading pop up
-                    curr_user.interactions = curr_user.interactions[curr_user.get_interaction_start_times().count(0):]  # empty interactions return a zero starttime
-                    # Map interactions
-                    curr_user.run_mapping()
-                    # Store users
-                    with open(curr_user.directory + 'user_dump.pickle', 'wb') as pkl_file:
-                        pickle.dump(curr_user, pkl_file)
-
-            # If loading users, then build new unversal item list (i.e. a list of each gazed upon item)
-            universal_item_list = add_to_universal_item_list(users, universal_item_list)
-
-        # ## stort and store store universal item list
-        sorted_universal_item_list_keys = sorted(universal_item_list, key=universal_item_list.get, reverse=True)
-        with open(sorted_universal_item_list_keys_file, 'wb') as pkl_file:
-            pickle.dump(sorted_universal_item_list_keys, pkl_file)
-    
-
-    # ## load stored users and process ## # 
-    pkl_file = open(sorted_universal_item_list_keys_file, 'rb') # load sorted universal item list keys
-    sorted_universal_item_list_keys = pickle.load(pkl_file)
-    # ## loop through desired experiemts
-    for i in experimental_indices:
-        base_dir, user_dir, print_times_file, print_mapping_file, print_items_present_file = return_experiemt_parameters(i)
-        users = []
-        for curr_user_dir in user_dir:
-            print curr_user_dir
-            pkl_file = open(base_dir + curr_user_dir + 'user_dump.pickle', 'rb')
-            users.append(pickle.load(pkl_file))
-
-        if save_times:
-            print_times_to_file(users, print_times_file)
-
-        if output_mappings:
-            print_mappings_to_file(users, print_mapping_file, sorted_universal_item_list_keys)
-
-        if output_items_present:
-            print_items_present_to_file(users, print_items_present_file, sorted_universal_item_list_keys)
-
-    sys.exit(0)
