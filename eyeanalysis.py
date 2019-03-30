@@ -288,13 +288,13 @@ class interaction:
         # ## use study specific load_pixelmap_ mehtods
         if pixelmap_start_time < 1514782800:  # subject from before 2018 --> labeling study
             self.load_pixelmap_index = 1
-            self.med_mappings = self.load_interaction_meds_mapping('D:/models/labeling_study/cases_t2/'+str(self.interaction_id))
+            self.med_mappings = self.load_interaction_meds_mapping(local_dir + 'labeling_study/cases_t2/'+str(self.interaction_id))
             ptimes_list, pitems_list = load_pixelmap_labeling_study(interaction_directory, self.med_mappings)
             for i in range(3):
                 self.sub_interactions.append(sub_interaction(ptimes_list[i], pitems_list[i], i))
         else:
             self.load_pixelmap_index = 2
-            self.med_mappings = self.load_interaction_meds_mapping('C:/Users/ajk77/Bitnami Django Stack projects/models/evaluation_study/cases_t2/'+str(self.interaction_id))
+            self.med_mappings = self.load_interaction_meds_mapping(local_dir + 'evaluation_study/cases_t2/'+str(self.interaction_id))
             ptimes_list, pitems_list = load_pixelmaps_evaluation_study(interaction_directory, self.med_mappings)
             for i in range(7):
                 self.sub_interactions.append(sub_interaction(ptimes_list[i], pitems_list[i], i))
@@ -346,7 +346,7 @@ class interaction:
                 self.eye_streams.append(eye_stream)
 
         # ## load distribution 
-        distribution_4 = np.loadtxt('C:/Users/ajk77/Bitnami Django Stack projects/models/eye_tests/4_pixel.txt', delimiter=',')
+        distribution_4 = np.loadtxt(local_dir + 'eye_tests/4_pixel.txt', delimiter=',')
 
         if not len(self.eye_streams):
             print "no eye_stream in time range"
@@ -559,7 +559,6 @@ def load_pixelmaps_evaluation_study(curr_dir, med_mappings):
                 # some pixelmap information will be lost here if it were not all printed to a single line
 
             last_line = line
-
 
     except (IndexError, ValueError):
         print last_line, curr_line
