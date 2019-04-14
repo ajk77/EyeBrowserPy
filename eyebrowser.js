@@ -1,8 +1,8 @@
 /*
 eyebrowser.js 
-package eyebrowserpy 
-version 2.0
-created by AndrewJKing.com|@andrewsjourney
+version 2.1
+package github.com/ajk77/EyeBrowserPy
+Created by AndrewJKing.com|@andrewsjourney
 
 This code stores the pixel location of html containers of interest. 
 >Each container (e.g. a div) must have a known id or be part of a class so that they can be identified via jQuery.
@@ -12,12 +12,27 @@ This code stores the pixel location of html containers of interest.
 >The browser must be full screen for pixel locations to be accurately mapped to the output stream of the eye tracking device.
 
 TODO:
-> generalize the functions
-> create settings file for url settings
+[] generalize the functions
+[] create settings file for url settings
 
 USAGE:
-> This is an example file. It will need to be customized for your interface. 
+This is an example file. It will need to be customized for your interface. 
 
+---LICENSE---
+This file is part of EyeBrowserPy
+
+EyeBrowserPy is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or 
+any later version.
+
+EyeBrowserPy is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with EyeBrowserPy.  If not, see <https://www.gnu.org/licenses/>.
 */
 
 

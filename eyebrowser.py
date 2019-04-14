@@ -1,8 +1,8 @@
 """
 eyebrowser.py
-package eyebrowserpy 
-version 2.0
-created by AndrewJKing.com|@andrewsjourney
+version 2.1
+package github.com/ajk77/EyeBrowserPy
+Created by AndrewJKing.com|@andrewsjourney
 
 This code has functions to start and stop and Tobii EyeX eye tracker. 
 It also processes and stores posts from eyebrowser.js.
@@ -11,8 +11,23 @@ The code for mapping and analysing the output of this file is in eyeanalysis.py.
 DEPENDENCIES:
 To connect to the eye tracking you must have the gazesdk code from: https://github.com/balancana/gazesdk
 ^This code requires you to put TobiiGazeCore32.dll into your /python/lib/site-packages/
-"""
 
+---LICENSE---
+This file is part of EyeBrowserPy
+
+EyeBrowserPy is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or 
+any later version.
+
+EyeBrowserPy is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with EyeBrowserPy.  If not, see <https://www.gnu.org/licenses/>.
+"""
 # URL handling
 
 # Views.py handling (skipped directly to the below functions, if possible)
