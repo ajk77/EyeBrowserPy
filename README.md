@@ -4,7 +4,7 @@ Eye (gaze) tracking in your browser, plus area of interest analysis code.
 
 ## Getting Started
 
-For an example implementation of this code see LEMRinterface (https://github.com/ajk77/EyeBrowserPy).
+For an example implementation of this code see LEMRinterface (https://github.com/ajk77/LEMRinterface).
 
 ### Prerequisites
 
@@ -24,11 +24,11 @@ Test the code by calling eyebrowserpy.start_eye_stream().
 ### Deployment
 
 Annotate your web interface as follows: 
->Each container (e.g. a div) must have a known id or be part of a class so that they can be identified via jQuery.
->Container locations are returned as as a comma separated list of container_id, top edge, left edge, bottom edge, right edge, next_container_id, ...
->Optional, containers are only returned if they are displayed within the bounds of a larger container. This is recommended if many containers are scrolled off screen.
->For static containers that contain a scroll bar, the scroll position can be returned instead. 
->The browser must be full screen for pixel locations to be accurately mapped to the output stream of the eye tracking device.
+*Each container (e.g. a div) must have a known id or be part of a class so that they can be identified via jQuery.
+*Container locations are returned as as a comma separated list of container_id, top edge, left edge, bottom edge, right edge, next_container_id, ...
+*Optional, containers are only returned if they are displayed within the bounds of a larger container. This is recommended if many containers are scrolled off screen.
+*For static containers that contain a scroll bar, the scroll position can be returned instead. 
+*The browser must be full screen for pixel locations to be accurately mapped to the output stream of the eye tracking device.
 
 #### Note
 
@@ -45,7 +45,7 @@ currently support.
 
 ## Versioning
 
-Version 2.1. For the versions available, see https://github.com/ajk77/LEMRinterface
+Version 2.1. For the versions available, see https://github.com/ajk77/EyeBrowserPy
 
 ## Authors
 
