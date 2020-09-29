@@ -4,7 +4,7 @@ Eye (gaze) tracking in your browser, plus area of interest analysis code.
 
 ## Getting Started
 
-For an example implementation of this code see LEMRinterface (https://github.com/ajk77/LEMRinterface).
+This package provides code for adding eye-tracking to LEMRinterface (https://github.com/ajk77/LEMRinterface). It is intendend for demonstrative purposes only. 
 
 ### Prerequisites
 
@@ -32,14 +32,6 @@ Annotate your web interface as follows: <br />
 
 #### Note
 
-The code as written is intended to work with LEMRinterface. So follow the LEMRinterface instalation instructions then:<br />
-Open Bitnami Django Stack Environment with use_djangostack.bat.<br />
-cd into your project directory<br />
-enter>"python manage.py runserver"<br />
-open web browser to http://127.0.0.1:8000/WebEmrGui/
-
-#### Note
-
 The analysis code assumes the browser is run in full screen mode on a 1920 x 1080 resolution monitor. On some browsers, smooth scrolling will need to be turned off.  Responsive html is not
 currently support.
 
@@ -56,6 +48,13 @@ Version 2.1. For the versions available, see https://github.com/ajk77/EyeBrowser
 	* Website (http://www.thevislab.com/)
 	* Twitter (https://twitter.com/Shyam_Vis)
 * Gregory F Cooper - Doctoral Advisor
+
+
+##Impact
+This interface has been used in the following studies:
+
+King AJ, Cooper GF, Clermont G, Hochheiser H, Hauskrecht M, Sittig DF, Visweswaran S. Leveraging Eye Tracking to Prioritize Relevant Medical Record Data: Comparative Machine Learning Study. J Med Internet Res 2020;22(4):e15876. (https://www.jmir.org/2020/4/e15876/)
+King AJ, Hochheiser H, Visweswaran S, Clermont G, Cooper GF. Eye-tracking for clinical decision support: A method to capture automatically what physicians are viewing in the EMR. AMIA Joint Summits. 2017 Mar 27-30; San Francisco, California p 512-521. [Best Student Paper] (https://www.ncbi.nlm.nih.gov/pubmed/28815151)
 
 ## License
 
