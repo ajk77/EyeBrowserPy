@@ -53,8 +53,8 @@ Version 2.1. For the versions available, see https://github.com/ajk77/EyeBrowser
 ## Impact
 This interface has been used in the following studies:
 
-King AJ, Cooper GF, Clermont G, Hochheiser H, Hauskrecht M, Sittig DF, Visweswaran S. Leveraging Eye Tracking to Prioritize Relevant Medical Record Data: Comparative Machine Learning Study. J Med Internet Res 2020;22(4):e15876. (https://www.jmir.org/2020/4/e15876/)
-King AJ, Hochheiser H, Visweswaran S, Clermont G, Cooper GF. Eye-tracking for clinical decision support: A method to capture automatically what physicians are viewing in the EMR. AMIA Joint Summits. 2017 Mar 27-30; San Francisco, California p 512-521. [Best Student Paper] (https://www.ncbi.nlm.nih.gov/pubmed/28815151)
+*King AJ, Cooper GF, Clermont G, Hochheiser H, Hauskrecht M, Sittig DF, Visweswaran S. Leveraging Eye Tracking to Prioritize Relevant Medical Record Data: Comparative Machine Learning Study. J Med Internet Res 2020;22(4):e15876. (https://www.jmir.org/2020/4/e15876/)
+*King AJ, Hochheiser H, Visweswaran S, Clermont G, Cooper GF. Eye-tracking for clinical decision support: A method to capture automatically what physicians are viewing in the EMR. AMIA Joint Summits. 2017 Mar 27-30; San Francisco, California p 512-521. [Best Student Paper] (https://www.ncbi.nlm.nih.gov/pubmed/28815151)
 
 ## License
 
