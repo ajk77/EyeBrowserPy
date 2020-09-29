@@ -50,7 +50,7 @@ Version 2.1. For the versions available, see https://github.com/ajk77/EyeBrowser
 * Gregory F Cooper - Doctoral Advisor
 
 
-##Impact
+## Impact
 This interface has been used in the following studies:
 
 King AJ, Cooper GF, Clermont G, Hochheiser H, Hauskrecht M, Sittig DF, Visweswaran S. Leveraging Eye Tracking to Prioritize Relevant Medical Record Data: Comparative Machine Learning Study. J Med Internet Res 2020;22(4):e15876. (https://www.jmir.org/2020/4/e15876/)
